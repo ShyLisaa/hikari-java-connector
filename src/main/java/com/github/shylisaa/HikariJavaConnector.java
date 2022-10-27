@@ -17,12 +17,10 @@ import java.sql.SQLException;
  **/
 public class HikariJavaConnector {
 
-    private static HikariJavaConnector instance;
     private Connection connection;
     private final ISqlExecutor executor;
 
     public HikariJavaConnector(HikariConfigurationBuilder configurationBuilder) {
-        instance = this;
         HikariConfig config = configurationBuilder.buildConfig();
         HikariDataSource dataSource = new HikariDataSource(config);
 
@@ -35,11 +33,6 @@ public class HikariJavaConnector {
         this.executor = new SqlExecutor(this.connection);
 
 
-    }
-
-    @Deprecated
-    public static HikariJavaConnector getInstance() {
-        return instance;
     }
     public ISqlExecutor getExecutor() {
         return executor;

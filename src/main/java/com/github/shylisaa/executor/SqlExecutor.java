@@ -91,10 +91,6 @@ public class SqlExecutor implements ISqlExecutor {
         update("DELETE FROM " + table + " WHERE " + column + "='" + value + "';");
     }
 
-    private Connection getConnection() {
-        return connection;
-    }
-
     @Override
     public void disconnect() {
         try {
