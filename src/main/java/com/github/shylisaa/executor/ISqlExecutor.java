@@ -27,7 +27,5 @@ public interface ISqlExecutor {
 
     void removeFromTable(String table, String column, String value);
 
-    Connection getConnection();
-
     void disconnect();
 }

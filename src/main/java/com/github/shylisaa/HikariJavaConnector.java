@@ -37,6 +37,7 @@ public class HikariJavaConnector {
 
     }
 
+    @Deprecated
     public static HikariJavaConnector getInstance() {
         return instance;
     }

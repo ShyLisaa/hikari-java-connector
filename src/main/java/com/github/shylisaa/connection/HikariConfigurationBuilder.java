@@ -10,7 +10,7 @@ import com.zaxxer.hikari.HikariConfig;
  **/
 public class HikariConfigurationBuilder {
 
-    private String host, datBaseName, userName, password;
+    private String host, dataBaseName, userName, password;
     private int port;
 
     private final HikariConfig hikariConfig;
@@ -28,8 +28,8 @@ public class HikariConfigurationBuilder {
         return this;
     }
 
-    public HikariConfigurationBuilder database(String datBaseName) {
-        this.datBaseName = datBaseName;
+    public HikariConfigurationBuilder database(String dataBaseName) {
+        this.dataBaseName = dataBaseName;
         return this;
     }
 
@@ -72,7 +72,7 @@ public class HikariConfigurationBuilder {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.hikariConfig.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/citybuild");
+        this.hikariConfig.setJdbcUrl("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.dataBaseName);
         this.hikariConfig.setUsername(this.userName);
         this.hikariConfig.setPassword(this.password);
         return this.hikariConfig;
